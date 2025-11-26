@@ -1,0 +1,24 @@
+Longest Common Prefix
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+       int n=strs.size();
+       string ans= strs[0];
+       if(ans.empty()) return "";
+       for(int i=1;i<n;i++){
+           int size=strs[i].size();
+           string match="";
+           for(int j=0;j<size;j++){
+            if(j<ans.size() && strs[i][j]==ans[j]){
+                match.append(1,ans[j]); //to append one character or we can use match += ans[j];
+            }
+            else{
+                break;
+            }
+           }
+           ans=match; 
+       }
+       return ans;
+    }
+};
