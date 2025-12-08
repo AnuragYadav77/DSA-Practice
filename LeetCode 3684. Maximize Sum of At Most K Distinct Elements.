@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> maxKDistinct(vector<int>& nums, int k) {
+        set<int> distinct_nums_set(nums.begin(),nums.end()); //copying nums into set so that duplicate elements are removed.
+        vector<int> distinct_nums_arr;
+        for(int i:distinct_nums_set){
+            distinct_nums_arr.push_back(i);
+        }
+        sort(distinct_nums_arr.rbegin(),distinct_nums_arr.rend());
+        vector<int> result;
+        for(int i=0;i<k && i<distinct_nums_arr.size();i++){
+            result.push_back(distinct_nums_arr[i]);
+        }
+        return result;
+        
+    }
+};
