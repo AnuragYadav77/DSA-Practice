@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string filtered = ""; //empty string declaration
+        for (char c : s) { //traverse the string s
+        if (isalnum(c)) { // Keep only letters and numbers
+            filtered += tolower(c); // Convert to lowercase and add to the string filtered
+        }
+    }
+        int n=filtered.length();
+        for(int i=0;i<n/2;i++){
+            if(filtered[i]!=filtered[n-i-1]) return false;
+        }
+        return true;
+    }
+};
