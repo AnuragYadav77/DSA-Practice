@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool hasAllCodes(string s, int k) {
+        int n=s.length();
+//NOTE-> A binary string of length k has exactly 2^k different combinations .
+
+         if(n<=k) return false;
+
+         unordered_set<string> sub_strings; //hash set to keep track of all unique substrings of length k in s.
+
+         for(int i=0;i<=n-k;i++){
+            string sub=s.substr(i,k); //Creates a new string 'sub' that contains a substring of s, starting at index i and having length k.
+            sub_strings.insert(sub);
+         }
+
+        int total_unique_strings=1<<k; //left shift '1' by 'k' bits which is equal to 2^k i.e. total no. of unique strings of length 'k'
+
+        return sub_strings.size()==total_unique_strings; //returns true if size of sub_strings set is equal to the size of total possible unique strings.
+          
+
+    }
+};
