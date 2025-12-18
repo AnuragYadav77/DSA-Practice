@@ -1,0 +1,31 @@
+class MyStack {
+    queue<int> q;
+public:
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        q.push(x);
+        for(int i=0;i<q.size()-1;i++){ //reversing the queue for it to behave like stack(LIFO)
+            q.push(q.front()); //moves front element to the back.
+            q.pop();  //remove it from the front.
+        }
+    }
+    
+    int pop() {
+        int x=q.front();
+        q.pop();
+        return x;
+    }
+    
+    int top() {
+        return q.front();
+    }
+    
+    bool empty() {
+        if(q.empty()) return true;
+        else return false;
+    }
+};
+
